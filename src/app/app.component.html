@@ -1,0 +1,82 @@
+<button class="btn btn-primary" (click)="generatePDF()" >generate</button>
+<div class="row justify-content-center">
+  <div class="col-sm-12 col-md-6 col-lg-12">
+    <!-- ************CEDULA CUENTA BENEFICIARIO Y TASA BCV************ (click)="generatePDF()"-->
+    <div class="row justify-content-between">
+      <div class="col-xl-4 col-lg-4 col-md-12">
+        <div class="receipt-cell">
+          <span>Documento de identidad</span>
+          <h6>V-21175861</h6>
+        </div>
+      </div>
+      <div class="col-xl-4 col-lg-4 col-md-12">
+        <div class="receipt-cell">
+          <span>Número de cuenta Mercantil</span>
+          <h6>cristiam vasquez &bull;&bull;&bull;&bull;&bull;7894</h6>
+        </div>
+      </div>
+      <div class="col-xl-4 col-lg-4 col-md-12 ">
+        <div class="receipt-cell">
+          <span>Tasa de cambio (referencial) BCV</span>
+          <h6>BS. 5.95</h6>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-12 col-md-6 col-lg-12">
+    <!-- ************MONTOS************ -->
+    <div class="row justify-content-between">
+      <div class="col-xl-4 col-lg-4 col-md-12">
+        <div class="receipt-cell">
+          <span class="texto-format">Monto a enviar al beneficiario</span>
+          <h6><span class="me-1" style="color: #96B5D1;">USD</span>{{valor | number: '1.0-2'}}</h6>
+          <p *ngIf="valor" class="comision-text" style="margin-top: -5px;">Bs. {{valor == '' || valor ==
+            null ? '' :
+            valor * precioDollar | number : '1.0-2'}}</p>
+        </div>
+      </div>
+      <div class="col-xl-4 col-lg-4 col-md-12">
+        <div class="receipt-cell">
+          <span class="texto-format">Monto de la comisión</span>
+          <h6><span class="me-1" style="color: #96B5D1;">USD</span>{{comisionUsd | number: '1.0-2'}}
+          </h6>
+          <p *ngIf="valor" class="comision-text" style="margin-top: -5px;">Bs. {{valor == '' || valor ==
+            null ? '' :
+            comisionBs | number:'1.0-2'}}</p>
+        </div>
+      </div>
+      <div class="col-xl-4 col-lg-4 col-md-12">
+        <div class="receipt-cell">
+          <span class="texto-format">Monto total de la operación</span>
+          <h6><span class="me-1" style="color: #96B5D1;">USD</span>{{totalUsd | number: '1.0-2'}}</h6>
+          <p *ngIf="valor" class="comision-text" style="margin-top: -5px;">Bs. {{valor == '' || valor ==
+            null ? '' :
+            totalBs | number : '1.0-2'}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-12 col-md-6 col-lg-12">
+    <!-- ************NUMERO CONFIRMACION ORDEN DE PAGO FECHA************ -->
+    <div class="row justify-content-between">
+      <div class="col-xl-4 col-lg-4 col-md-12">
+        <div class="receipt-cell">
+          <span>Número de confirmación</span>
+          <h6>1222222222</h6>
+        </div>
+      </div>
+      <div class="col-xl-4 col-lg-4 col-md-12">
+        <div class="receipt-cell">
+          <span>Número de orden de pago</span>
+          <h6>0000000000000000000</h6>
+        </div>
+      </div>
+      <div class="col-xl-4 col-lg-4 col-md-12">
+        <div class="receipt-cell">
+          <span>Fecha y Hora</span>
+          <h6>{{date}}</h6>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
