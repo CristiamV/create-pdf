@@ -16,12 +16,14 @@ export class AppComponent {
   comisionBs = '';
   totalUsd = 0;
   totalBs = 0;
-  docId = "V-21175861"
+  docId = "V-21175861";
+  beneficiaryName = "Cristiam Vasquez";
+  formatAccount = "1234";  
   date = formatDate(new Date(), 'dd/MM/y - hh:mm:ss aa', 'en').toLowerCase()
 
   constructor( private pdfService: PdfServiceService){}
 
   generatePDF(){
-    this.pdfService.generatePDF(this.docId)
+    this.pdfService.generatePDF(this.docId,this.beneficiaryName, this.precioDollar, this.formatAccount)
   }
 }
